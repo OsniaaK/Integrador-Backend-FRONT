@@ -3,6 +3,11 @@ import { createContext, useContext, useState, useEffect, useMemo, useCallback } 
 const Catalog = createContext(null);
 const API_URL = import.meta.env.VITE_BACKEND_API || "http://localhost:3001/api/products";
 
+// --- INICIO DEL CAMBIO PARA DIAGNÓSTICO ---
+console.log("Valor de VITE_BACKEND_API:", import.meta.env.VITE_BACKEND_API);
+console.log("API_URL final que se usará:", API_URL);
+// --- FIN DEL CAMBIO PARA DIAGNÓSTICO ---
+
 export const ProductsProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState([]);
   const [search, setSearch] = useState("");
