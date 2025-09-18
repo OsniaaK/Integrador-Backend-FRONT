@@ -1,0 +1,250 @@
+:root {
+  --contact-glass: rgba(255,255,255,0.13);
+  --contact-glass-blur: blur(12px);
+  --contact-gradient: linear-gradient(120deg, #f1b669 0%, #937d64 100%);
+  --contact-accent: #f1b669;
+  --contact-shadow: 0 8px 32px 0 rgba(85, 61, 54, 0.18);
+}
+
+.contactMain {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+.contactHeader {
+  margin-bottom: 2rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.contactTitle {
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: var(--contact-accent);
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px #553d36, 0 0 2px var(--contact-accent);
+  margin-bottom: 0.7rem;
+}
+
+.contactIntro {
+  color: var(--fontsLight);
+  font-size: 1.2rem;
+  background: var(--contact-glass);
+  backdrop-filter: var(--contact-glass-blur);
+  border-radius: 1.2rem;
+  padding: 1.2rem 2rem;
+  margin: 0 auto;
+  max-width: 600px;
+  box-shadow: 0 2px 12px 0 rgba(85, 61, 54, 0.1);
+}
+
+.contactSection {
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  z-index: 2;
+}
+
+.contactForm {
+  width: 100%;
+  background: var(--contact-glass);
+  backdrop-filter: var(--contact-glass-blur);
+  border-radius: 2rem;
+  box-shadow: var(--contact-shadow);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--contact-accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px #4b362f;
+}
+
+.contactInput,
+.contactTextarea {
+  background: rgba(85, 61, 54, 0.1);
+  border: 2px solid rgba(241, 182, 105, 0.2);
+  border-radius: 1rem;
+  padding: 0.8rem 1.2rem;
+  color: var(--fontsLight);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  resize: none;
+  scrollbar-width: none;
+}
+
+.contactInput:focus,
+.contactTextarea:focus {
+  outline: none;
+  border-color: var(--contact-accent);
+  box-shadow: 0 0 0 2px rgba(241, 182, 105, 0.2);
+}
+
+.contactInput.errorInput,
+.contactTextarea.errorInput {
+  border-color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+.contactInput::placeholder,
+.contactTextarea::placeholder {
+  color: rgba(255, 250, 250, 0.6);
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  font-weight: 500;
+  text-shadow: none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+
+.successMessage {
+  color: #51cf66;
+  background: rgba(81, 207, 102, 0.1);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+  border: 1px solid rgba(81, 207, 102, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.contactButton {
+  background: var(--contact-gradient);
+  color: var(--fontsLight);
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  text-shadow: 1px 1px 2px #4b362f;
+  box-shadow: 0 4px 12px rgba(85, 61, 54, 0.2);
+}
+
+.contactButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(85, 61, 54, 0.3);
+}
+
+.contactButton:active {
+  transform: translateY(0);
+}
+
+.contactSentMsg {
+  text-align: center;
+  color: var(--contact-accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: rgba(241, 182, 105, 0.1);
+  padding: 0.7rem 1.5rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.contactBgEffect {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 20%, #f1b66955 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, #937d6455 0%, transparent 60%);
+  opacity: 0.7;
+  animation: contactBgMove 18s linear infinite alternate;
+}
+
+@keyframes contactBgMove {
+  0% {
+    background-position: 70% 20%, 20% 80%;
+  }
+  100% {
+    background-position: 60% 30%, 30% 70%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .contactForm {
+    padding: 1.5rem 0.7rem;
+    border-radius: 1.2rem;
+  }
+  .contactSection {
+    max-width: 98vw;
+  }
+  .contactHeader {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactTitle {
+    font-size: 2rem;
+  }
+  .contactIntro {
+    font-size: 1rem;
+    padding: 0.8rem 0.7rem;
+  }
+  .contactForm {
+    gap: 1rem;
+    padding: 1rem 0.3rem;
+  }
+  .contactLabel {
+    font-size: 1rem;
+  }
+  .contactInput,
+  .contactTextarea {
+    font-size: 0.98rem;
+    padding: 0.7rem 0.7rem;
+  }
+  .contactButton {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}

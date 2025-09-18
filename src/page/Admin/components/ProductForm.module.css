@@ -1,0 +1,134 @@
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #1e1e1e;
+  color: #f0f0f0;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  border: 1px solid #333;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalContent h2 {
+  margin-top: 0;
+  color: var(--details);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modalContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #aaa;
+}
+
+.modalContent input[type="text"],
+.modalContent input[type="number"],
+.modalContent input[type="file"],
+.modalContent select,
+.modalContent textarea {
+  padding: 0.75rem;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.modalContent input:focus,
+.modalContent select:focus,
+.modalContent textarea:focus {
+  outline: none;
+  border-color: var(--details);
+}
+
+.imageTypeSelector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.imageTypeSelector label {
+  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.imagePreview {
+  max-width: 100px;
+  margin-top: 1rem;
+  border-radius: 4px;
+  border: 1px solid #444;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.buttons button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.saveButton {
+  background-color: var(--details);
+  color: #121212;
+}
+.saveButton:hover {
+  filter: brightness(1.1);
+}
+
+.cancelButton {
+  background-color: #444;
+  color: #f0f0f0;
+}
+.cancelButton:hover {
+  background-color: #555;
+}
+
+@media (max-width: 600px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
