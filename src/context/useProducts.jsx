@@ -14,13 +14,8 @@ export const ProductsProvider = ({ children }) => {
   const fetchProducts = useCallback(() => {
     setLoading(true);
     fetch(API_URL)
-      .then(async res => { // Añadimos async aquí
-        if (!res.ok) {
-          // Si la respuesta no es OK, intentamos leer el cuerpo como texto
-          const errorHtml = await res.text();
-          console.error("El backend devolvió un error HTML:", errorHtml);
-          throw new Error('La respuesta de la red no fue exitosa');
-        }
+      .then(res => {
+        if (!res.ok) throw new Error('La respuesta de la red no fue exitosa');
         return res.json();
       })
       .then(data => {
