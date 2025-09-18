@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, useMemo, useCallback } from "react";
 
 const Catalog = createContext(null);
-const API_URL = import.meta.env.BACKEND_API || "http://localhost:3001/api/products";
+const API_URL = import.meta.env.VITE_BACKEND_API || "http://localhost:3001/api/products";
 
 export const ProductsProvider = ({ children }) => {
   const [allProducts, setAllProducts] = useState([]);
